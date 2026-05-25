@@ -16,21 +16,21 @@ const DashboardRoot = () => {
     return (
         <div className={styles.dashboardLayout}>
             <SideBar
-                logo="/assets/imgs/Logo.png"
+                logo="/task-4-adv/assets/imgs/Logo.png"
                 navBar={
                 <NavBar items={[
                     {
-                        icon: "/assets/imgs/products-icon.png",
+                        icon: "/task-4-adv/assets/imgs/products-icon.png",
                         item: "Products",
                         path: "/dashboard"
                     },
                     {
-                        icon: "/assets/imgs/bookmark-icon.png",
+                        icon: "/task-4-adv/assets/imgs/bookmark-icon.png",
                         item: "Favorites",
                         path: "/dashboard/favorites"
                     },
                     {
-                        icon: "/assets/imgs/bookmark-icon.png",
+                        icon: "/task-4-adv/assets/imgs/bookmark-icon.png",
                         item: "order list",
                         path: "/dashboard/orders"
                     }]} />
