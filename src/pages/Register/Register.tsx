@@ -40,7 +40,7 @@ const Register = () => {
                     localStorage.setItem("profile_image", serverResponse.data.user.profile_image_url);
 
                     showAlert("success", serverResponse?.data?.message || "Success!");
-                    setTimeout(() => { navigate("/dashboard"); }, 4000);
+                    setTimeout(() => { navigate("/dashboard"); }, 3000);
                 })
                 .catch(err => {
                     console.log("Full Error Object:", err);
@@ -105,7 +105,7 @@ const Register = () => {
     return (
         <>
             <DynamicForm
-                logo="/assets/imgs/Logo.png"
+                logo="/task-4-adv/assets/imgs/Logo.png"
                 title="SIGN UP"
                 desc="Fill in the following fields to create an account."
                 inputs={registerInputs}

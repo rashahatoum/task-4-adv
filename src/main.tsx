@@ -47,8 +47,13 @@ const router = createBrowserRouter([
         element: <EditItem />,
       }
     ]
+    
   }
-])
+],
+  {
+    basename: "/task-4-adv/"
+  }
+)
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />

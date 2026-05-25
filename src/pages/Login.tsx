@@ -52,7 +52,7 @@ const Login = () => {
     return (
         <>
             <DynamicForm
-                logo="/assets/imgs/Logo.png"
+                logo="/task-4-adv/assets/imgs/Logo.png"
                 title="SIGN IN"
                 desc="Enter your credentials to access your account"
                 inputs={loginInputs}

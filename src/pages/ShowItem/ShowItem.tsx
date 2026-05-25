@@ -72,7 +72,7 @@ const ShowItem = () => {
                         onError={(e) => {
                             const target = e.currentTarget as HTMLImageElement;
                             target.onerror = null;
-                            target.src = "/assets/imgs/default-product-img.png";
+                            target.src = "/task-4-adv/assets/imgs/default-product-img.png";
                             
                         }}
                     />

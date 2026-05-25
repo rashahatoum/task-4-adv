@@ -8,7 +8,7 @@ import type { SideBarProps } from "../../interfaces";
 
 const SideBar = ({ logo, navBar }: SideBarProps) => {
     const [name, setName] = useState<string>("");
-    const [profile, setProfile] = useState<string>("/assets/imgs/default-profile.png");
+    const [profile, setProfile] = useState<string>("/task-4-adv/assets/imgs/default-profile.png");
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
     const navigate = useNavigate();
@@ -75,13 +75,13 @@ const SideBar = ({ logo, navBar }: SideBarProps) => {
             <div className={styles.profileGroup}>
                 <img src={profile.replace("http://", "https://")} alt={name} className={styles.profileImage}
                     onError={(e) => {
-                        (e.target as HTMLImageElement).src = "/assets/imgs/default-profile.png";
+                        (e.target as HTMLImageElement).src = "/task-4-adv/assets/imgs/default-profile.png";
                     }}
                 />
                 <h3 className={styles.name}>{name}</h3>
             </div>
             {navBar}
-            <button onClick={logout} className={styles.logout}>logout <img src="/assets/imgs/logout-icon.png" alt="Logout" className={styles.logoutIcon}></img></button>
+            <button onClick={logout} className={styles.logout}>logout <img src="/task-4-adv/assets/imgs/logout-icon.png" alt="Logout" className={styles.logoutIcon}></img></button>
         </div>
     )
 }

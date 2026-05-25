@@ -26,8 +26,8 @@ const Input = ({ name, label, type, placeholder, value, defaultValue, onChange, 
                         }}
                     />
                     {preview ? (
-                        <img src={preview} alt="preview" className={styles.previewImg} onError={(e) => { e.currentTarget.src = "/assets/imgs/default-product-img.png" }} />) : (
-                        <img src="/assets/imgs/uploadIcon.png" className={styles.uploadIcon} />
+                        <img src={preview} alt="preview" className={styles.previewImg} onError={(e) => { e.currentTarget.src = "/task-4-adv/assets/imgs/default-product-img.png" }} />) : (
+                        <img src="/task-4-adv/assets/imgs/uploadIcon.png" className={styles.uploadIcon} />
                     )}
                 </label>
             </div>
