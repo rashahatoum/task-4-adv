@@ -1,0 +1,75 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #00000080; 
+    backdrop-filter: blur(6px); 
+    display: none;
+    z-index: 11;
+}
+
+.deletePopup {
+    width: 66vw;
+    height: 32vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 2px 5px 10px 0px #0000001A;
+    background: #FDFDFD;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding: 8vh 12.5vw;
+    text-align: center;
+
+}
+
+.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:13vh;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 200px;
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    font-size: 32px;
+}
+
+@media (max-width: 1024px) {
+.deletePopup {
+    height: 28vh;
+    font-size: 14px;
+    padding: 30px;
+}
+.btnGroup {
+    gap:20px;
+}
+.btn {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+}
+}

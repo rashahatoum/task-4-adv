@@ -1,0 +1,75 @@
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+}
+
+.pageBtn, .arrowBtn {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #F1F1F1;
+    border-radius: 50%; 
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.arrowIcon{
+    font-size: 16px;
+}
+
+
+.pageBtn:hover:not(.active), .arrowBtn:hover:not(:disabled) {
+    border-color: var(--mainOrange); ;
+    color: var(--mainOrange);
+    background-color: #fffaf0; 
+}
+
+.pageBtn.active {
+    background-color: var(--mainOrange); 
+    border-color: var(--mainOrange);
+    color: #ffffff;
+}
+
+.arrowBtn:disabled {
+    background-color: #f7fafc;
+    color: #cbd5e0;
+    border-color: #e2e8f0;
+    cursor: not-allowed;
+}
+
+.dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    height: 40px;
+    font-size: 18px;
+    color: #a0a0a0;
+    cursor: default;
+}
+
+@media (max-width: 1024px) {
+.paginationContainer {
+    margin-top: 0px;
+}
+.pageBtn, .arrowBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 8px;
+    padding: 0px;
+}
+.arrowIcon{
+    width: 30px;
+    height: 30px;
+    font-size: 8px;
+}
+}

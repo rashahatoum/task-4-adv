@@ -1,0 +1,78 @@
+.formCard {
+    display: flex;
+    flex-direction: column;
+    width: 476px;
+    padding: 42px 30px;
+    border-radius: 20px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 2px 5px 10px 0px #0000001A;
+    margin: 15vh auto;
+}
+
+.logo {
+    width: 150px;
+    margin: 0px auto 42px;
+}
+
+.textPart {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 9px;
+}
+
+.desc {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--paragraphText);
+}
+
+.inputWrapper {
+    width: 100%;
+}
+
+.submitBtn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.directionText {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--paragraphText);
+    margin-top: 27px;
+    text-align: center;
+    width: 100%;
+}
+
+.link {
+    color: var(--mainOrange);
+}
+
+
+.previewImg {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+.formCard {
+    margin: 0 auto;
+    max-width: 476px;
+    width: 100%;
+    padding: 32px 20px;
+}
+.logo {
+    width: 100px;
+    margin: 0px auto 32px;
+}
+.textPart {
+    margin-bottom: 30px;
+}
+}

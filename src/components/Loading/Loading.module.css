@@ -1,0 +1,39 @@
+.loaderContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 60px;
+}
+
+.hourglassIcon {
+    font-size: 200px;
+    color: var(--mainOrange);
+    animation: spin 1.5s linear infinite; 
+}
+
+
+@keyframes spin {
+    to { transform: rotate(360deg); } 
+}
+
+.loadingText {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--mainOrange);
+    text-align: center;
+}
+
+@media (max-width: 1024px) { 
+.loaderContainer {
+    gap: 20px;
+    padding: 20px;
+}
+.hourglassIcon {
+    font-size: 100px;
+}
+.loadingText {
+    font-size: 20px;
+}
+}

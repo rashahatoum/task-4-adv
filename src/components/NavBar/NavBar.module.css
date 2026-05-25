@@ -1,0 +1,36 @@
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.item {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 40px;
+}
+
+.icon {
+    width: 14px;
+}
+
+.firstIcon { 
+    width: 24px;
+}
+
+.active {
+    background-color: var(--mainOrange);
+    border-radius: 4px;
+}
+.item:hover{
+    background-color: var(--mainOrange);
+    border-radius: 4px;
+}

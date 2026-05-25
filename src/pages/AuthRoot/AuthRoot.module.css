@@ -1,0 +1,9 @@
+.authWrapper {
+    background: linear-gradient(71.17deg, var(--mainOrange) 19.35%, var(--lightOrange) 90.12%);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+}

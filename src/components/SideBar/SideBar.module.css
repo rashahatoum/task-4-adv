@@ -1,0 +1,96 @@
+.sideBar{
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 18.75%;
+    height: 100vh;
+    background-color: var(--sidbarBg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 38px;
+    transition: transform 0.3s ease-in-out;
+}
+.logoGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.rectangle {
+    width: 0px;
+    height: 23px;
+    border: 4px solid var(--mainOrange);
+}
+.logo{
+    width: 85px;
+}
+
+.profileGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.profileImage{
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+}
+.name{
+font-weight: 700;
+font-style: Bold;
+font-size: 17px;
+}
+.logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 23px;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    background: none;
+}
+.logoutIcon{
+    width: 17px;
+}
+
+.toggleBtn {
+    display: none;
+}
+
+.closed {
+    transform: translateX(-80%); 
+}
+
+@media (max-width: 1024px) {
+    .sideBar {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 10;
+        width: fit-content;
+        padding-top: 40px;
+    }
+
+    .toggleBtn {
+        display: block; 
+        position: absolute;
+        top: 20px;
+        right: 12px; 
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .toggleIcon{
+        font-size: 24px;
+        object-fit: contain;
+    }
+}

@@ -1,0 +1,24 @@
+.mainBtn {
+    border-radius: 4px;
+    background: var(--mainOrange);
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    padding: 14px;
+    text-align: center;
+}
+
+.mainBtn a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+@media (max-width: 1024px) {
+.mainBtn {
+    padding: 10px;
+}
+}

@@ -1,0 +1,70 @@
+.registerForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    align-items: flex-end;
+}
+
+
+.formHeader {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+
+.formButton {
+    grid-column: span 2;
+    margin-top: 15px;
+}
+
+.fullInput {
+    grid-column: span 2;
+}
+
+
+.halfInput {
+    grid-column: span 1;
+}
+
+
+.registerForm>img {
+    grid-column: span 2;
+    display: block;
+    margin: 0 auto 42px;
+}
+
+
+.registerForm>p {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.profileImage{
+    width: 100px;
+    height: 128px;
+}
+
+@media (max-width: 1024px) {
+
+.registerForm>img {
+    margin: 0 auto 30px;
+}
+
+.profileImage{
+    width: 60px;
+    height: 108px;
+}
+
+.formHeader {
+    margin-bottom: 14px;
+}
+
+.registerForm>p {
+margin-top: 14px;
+}
+
+.formButton {
+    margin-top: 0px;
+}
+}
