@@ -45,7 +45,7 @@ const SideBar = ({ logo, navBar }: SideBarProps) => {
             },
         })
             .then(res => res.json())
-            .then(res => {
+            .then(_res => {
                 localStorage.removeItem("token");
                 localStorage.removeItem("user_name");
                 localStorage.removeItem("profile_image");
