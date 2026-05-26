@@ -1,12 +1,12 @@
 import axios from "axios"
-import type { DeletePopupProps } from "../../interfaces"
+import type { AlertContextType, DeletePopupProps } from "../../interfaces"
 import styles from "./DeletePopup.module.css"
 import Button from "../ui/Button/Button"
 import { useOutletContext } from "react-router-dom"
 
 const DeletePopup = ({ deletedProduct, setDeletedProduct , setProducts}: DeletePopupProps) => {
 
-const { showAlert } = useOutletContext<{ showAlert: Function }>();
+const { showAlert } = useOutletContext<AlertContextType>();
 
     const cancleDelete = () => {
         setDeletedProduct({
@@ -27,12 +27,10 @@ const { showAlert } = useOutletContext<{ showAlert: Function }>();
         })
             .then(res => {
                 showAlert("success", res?.data?.msg || "Success!");
-                console.log(res)
                 setProducts((prev) => prev.filter(item => item.id !== deletedProduct.id));
                 cancleDelete();
             })
             .catch(err => {
-                console.log(err)
                 showAlert("error", err.response?.data?.msg || "Error!");
             })
     }

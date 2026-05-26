@@ -104,3 +104,7 @@ export interface SideBarProps {
     logo: string;
     navBar: ReactNode;
 }
+
+export type AlertContextType = { 
+    showAlert: (type: "success" | "error", msg: string) => void 
+};

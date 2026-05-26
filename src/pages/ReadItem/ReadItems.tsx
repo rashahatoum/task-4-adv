@@ -7,7 +7,7 @@ import Button from "../../components/ui/Button/Button";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../../components/ui/ProductCard/ProductCard";
-import type { Product } from "../../interfaces";
+import type { AlertContextType, Product } from "../../interfaces";
 import Loading from "../../components/Loading/Loading";
 import DeletePopup from "../../components/DeletePopup/DeletePopup";
 
@@ -19,7 +19,7 @@ const ReadItem = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const { showAlert } = useOutletContext<{ showAlert: Function }>();
+  const { showAlert } = useOutletContext<AlertContextType>();
   const navigate = useNavigate()
     const [deletedProduct, setDeletedProduct] = useState<Product>({
     id: 0,

@@ -2,7 +2,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import DynamicForm from "../components/DynamicForm/DynamicForm";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import type { loginData } from "../interfaces";
+import type { AlertContextType, loginData } from "../interfaces";
 
 const Login = () => {
     const [data, setData] = useState<loginData>({
@@ -11,7 +11,7 @@ const Login = () => {
     })
 
     const navigate = useNavigate()
-    const { showAlert } = useOutletContext<{ showAlert: Function }>();
+    const { showAlert } = useOutletContext<AlertContextType>();
 
     useEffect(() => {
         if (data.email != "" && data.password != "") {

@@ -13,16 +13,11 @@ const SideBar = ({ logo, navBar }: SideBarProps) => {
 
     const navigate = useNavigate();
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth <= 1024) {
-                setIsOpen(false);
-            } else {
-                setIsOpen(true);
-            }
-        };
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        const mql = window.matchMedia("(max-width: 1024px)");
+        const checkScreen = () => setIsOpen(!mql.matches);
+        checkScreen();
+        mql.addEventListener("change", checkScreen);
+        return () => mql.removeEventListener("change", checkScreen);
     }, []);
 
     useEffect(() => {
@@ -51,39 +46,39 @@ const SideBar = ({ logo, navBar }: SideBarProps) => {
         })
             .then(res => res.json())
             .then(res => {
-                console.log(res)
-                navigate("/")
-                localStorage.removeItem("token")
+                localStorage.removeItem("token");
+                localStorage.removeItem("user_name");
+                localStorage.removeItem("profile_image");
+                navigate("/");
             })
-            .catch(err => {
-                console.log(err)
-                window.alert(err.response?.data?.msg || "Error in logout!")
-            })
+            .catch (err => {
+    window.alert(err.response?.data?.msg || "Error in logout!")
+})
     }
 
-    return (
-        <div className={`${styles.sideBar} ${isOpen ? "" : styles.closed}`}>
-            <button className={styles.toggleBtn} onClick={() => setIsOpen(!isOpen)}>
-                <div className={styles.toggleIcon}>
-                    {isOpen ? <IoCloseCircleSharp /> : <CgMenuRound />}
-                </div>
-            </button>
-            <div className={styles.logoGroup}>
-                <div className={styles.rectangle}></div>
-                <img src={logo} alt="Logo" className={styles.logo} />
+return (
+    <div className={`${styles.sideBar} ${isOpen ? "" : styles.closed}`}>
+        <button className={styles.toggleBtn} onClick={() => setIsOpen(!isOpen)}>
+            <div className={styles.toggleIcon}>
+                {isOpen ? <IoCloseCircleSharp /> : <CgMenuRound />}
             </div>
-            <div className={styles.profileGroup}>
-                <img src={profile.replace("http://", "https://")} alt={name} className={styles.profileImage}
-                    onError={(e) => {
-                        (e.target as HTMLImageElement).src = "/task-4-adv/assets/imgs/default-profile.png";
-                    }}
-                />
-                <h3 className={styles.name}>{name}</h3>
-            </div>
-            {navBar}
-            <button onClick={logout} className={styles.logout}>logout <img src="/task-4-adv/assets/imgs/logout-icon.png" alt="Logout" className={styles.logoutIcon}></img></button>
+        </button>
+        <div className={styles.logoGroup}>
+            <div className={styles.rectangle}></div>
+            <img src={logo} alt="Logo" className={styles.logo} />
         </div>
-    )
+        <div className={styles.profileGroup}>
+            <img src={profile.replace("http://", "https://")} alt={name} className={styles.profileImage}
+                onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/task-4-adv/assets/imgs/default-profile.png";
+                }}
+            />
+            <h3 className={styles.name}>{name}</h3>
+        </div>
+        {navBar}
+        <button onClick={logout} className={styles.logout}>logout <img src="/task-4-adv/assets/imgs/logout-icon.png" alt="Logout" className={styles.logoutIcon}></img></button>
+    </div>
+)
 }
 
 export default SideBar

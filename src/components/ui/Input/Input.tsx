@@ -1,17 +1,21 @@
 import styles from "./Input.module.css"
 import type { InputProps } from "../../../interfaces"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
 const Input = ({ name, label, type, placeholder, value, defaultValue, onChange, className }: InputProps) => {
-    const [preview, setPreview] = useState<string | null>(typeof defaultValue === "string" && defaultValue !== "" ? defaultValue.replace("http://", "https://") : null);
+    const [preview, setPreview] = useState(defaultValue);
+    useEffect(() => {
+    if (typeof defaultValue === "string" && defaultValue !== "") {
+        setPreview(defaultValue.replace("http://", "https://"));
+    }
+}, [defaultValue]);
+
     if (type === "file") {
         return (
             <div className={`${styles.inputContainer} ${className}`}>
                 <label className={styles.lable}>{label}</label>
-
-                {/* هذا هو المربع المقطع */}
                 <label className={styles.fileSquare}>
                     <input
                         type="file"

@@ -4,7 +4,7 @@ import type { ButtonProps } from "../../../interfaces"
 const Button = ({text, onClick,children, className }: ButtonProps) => {
     return (
         <>
-            <button onClick={onClick} className={`${className} ${styles.mainBtn}`}> 
+            <button onClick={onClick} className={`${className || ""} ${styles.mainBtn}`}> 
                 {text}
                 {children}
                 </button>

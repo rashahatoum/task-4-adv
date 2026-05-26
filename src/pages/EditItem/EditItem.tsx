@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import DynamicForm from "../../components/DynamicForm/DynamicForm";
-import type { InputProps, Product, ProductCreated } from "../../interfaces";
+import type { AlertContextType, InputProps, Product, ProductCreated } from "../../interfaces";
 import { Link, useNavigate, useOutletContext, useParams } from "react-router-dom";
 import axios from "axios";
 import { GrPrevious } from "react-icons/gr";
@@ -12,7 +12,7 @@ const EditItem = () => {
   const [data, setData] = useState<ProductCreated>()
   const navigate = useNavigate()
   const { id } = useParams()
-  const { showAlert } = useOutletContext<{ showAlert: Function }>();
+  const { showAlert } = useOutletContext<AlertContextType>();
   const [oldData, setOldData] = useState<Product>()
   const [submit, setSubmit] = useState<boolean>(false)
   
@@ -26,7 +26,9 @@ const EditItem = () => {
         })
             .then(res => {
               setOldData(res.data)})
-            .catch(err => console.log(err))
+            .catch(err => {
+                showAlert("error", err.response?.data?.message || "Error!");
+            })
     }, [id])
 
   useEffect(() => {
@@ -52,7 +54,6 @@ const EditItem = () => {
         }
         )
         .catch(err => {
-          console.log("Full Error Object:", err);
           const backendErrors = err.response?.data?.errors;
 
           if (backendErrors) {

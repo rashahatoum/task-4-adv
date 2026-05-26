@@ -1,7 +1,7 @@
 import { useParams, useOutletContext, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import type { Product } from "../../interfaces";
+import type { AlertContextType, Product } from "../../interfaces";
 import styles from "./ShowItem.module.css";
 import { GrPrevious } from "react-icons/gr";
 import Loading from "../../components/Loading/Loading";
@@ -9,7 +9,7 @@ import Loading from "../../components/Loading/Loading";
 
 const ShowItem = () => {
     const { id } = useParams<{ id: string }>();
-    const { showAlert } = useOutletContext<{ showAlert: Function }>();
+    const { showAlert } = useOutletContext<AlertContextType>();
     const [product, setProduct] = useState<Product>({
         id: 0,
         name: "",
@@ -48,7 +48,6 @@ const ShowItem = () => {
                 setProduct(res.data);
             })
             .catch(err => {
-                console.log(err);
                 showAlert("error", err.response?.data?.message || "Error!");
             })
             .finally(() => {

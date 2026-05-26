@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DynamicForm from "../../components/DynamicForm/DynamicForm"
 import { useNavigate, useOutletContext } from "react-router-dom";
-import type { InputProps, registerData } from "../../interfaces";
+import type { AlertContextType, InputProps, registerData } from "../../interfaces";
 import styles from "./Register.module.css"
 import axios from "axios";
 
@@ -18,13 +18,24 @@ const Register = () => {
     })
 
     const navigate = useNavigate()
-    const { showAlert } = useOutletContext<{ showAlert: Function }>();
+    const { showAlert } = useOutletContext<AlertContextType>();
     useEffect(() => {
-        if (data.first_name !== "" && data.profile_image !== null) {
+        if (data.first_name !== "" && data.email !== "" && data.password !== "") {
 
-
+        const sendRegistrationData = async () => {
             const generatedUserName = `${data.first_name} ${data.last_name}`.toLowerCase();
             const finalData = { ...data, user_name: generatedUserName };
+
+            if (!data.profile_image) {
+                    try {
+                        const resp = await fetch("/task-4-adv/assets/imgs/default-profile.png");
+                        const blob = await resp.blob();
+                        finalData.profile_image = new File([blob], "default-profile.png", { type: blob.type });
+                    } catch (imageError) {
+                        console.error("Failed to load default image:", imageError);
+                    }
+                }
+
 
             axios.post("https://dashboard-i552.onrender.com/api/register", finalData, {
                 headers: {
@@ -37,13 +48,15 @@ const Register = () => {
 
                     localStorage.setItem("token", `Bearer ${serverResponse.data.token}`);
                     localStorage.setItem("user_name", serverResponse.data.user.user_name);
-                    localStorage.setItem("profile_image", serverResponse.data.user.profile_image_url);
+                    localStorage.setItem(
+                        "profile_image",
+                        serverResponse.data.user.profile_image_url || "/task-4-adv/assets/imgs/default-profile.png"
+                    );
 
                     showAlert("success", serverResponse?.data?.message || "Success!");
                     setTimeout(() => { navigate("/dashboard"); }, 3000);
                 })
                 .catch(err => {
-                    console.log("Full Error Object:", err);
 
                     if (err && err.response && err.response.data) {
                         const responseData = err.response.data;
@@ -55,6 +68,8 @@ const Register = () => {
                     }
                     showAlert("error", err?.message || "Internal Server Error");
                 });
+            }
+                sendRegistrationData();
         }
     }, [data]);
 
@@ -90,7 +105,7 @@ const Register = () => {
             name: "password_confirmation",
             type: "password",
             placeholder: "Re-enter your password",
-            wrapperClassName: styles.halfInputو
+            wrapperClassName: styles.halfInput,
         },
         {
             name: "profile_image",
@@ -98,7 +113,7 @@ const Register = () => {
             type: "file",
             placeholder: "",
             wrapperClassName: styles.fullInput,
-            className: styles.profileImage
+            className: styles.profileImage,
 
         },
     ];

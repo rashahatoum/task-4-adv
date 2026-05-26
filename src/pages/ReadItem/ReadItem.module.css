@@ -1,10 +1,11 @@
 .container {
-    height: 80vh;
+    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap:10px;
+    gap:32px;
 }
 
 .addBtn {
@@ -17,7 +18,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
-    min-height: 456px;
+    align-items: center;
+    flex: 1;                   
+    align-content: start;     
+    width: 100%;
 }
 
 .loading,
@@ -41,6 +45,7 @@
         padding-right: 20px;
         gap: 20px;
         height: 70vh;
+        gap:10px;
     }
 
     .productsGrid {

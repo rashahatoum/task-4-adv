@@ -10,14 +10,16 @@ const AlertPopup = ({show, message, type, onClose }: AlertProps) => {
 const typeClass = type === "success" ? styles.popupSuccess : styles.popupError;
 const showClass = show ? styles.showOverlay : "";
 
-    useEffect(() => {
-        if (show) {
-            const timer = setTimeout(() => {
-                onClose(); 
-            }, 4000); 
-            return () => clearTimeout(timer);
-        }
+useEffect(() => {
+        if (!show) return;
+        const timer = setTimeout(() => {
+            onClose();
+        }, 3000);
+        return () => clearTimeout(timer);
+        
     }, [show, onClose]);
+
+    if (!show) return null;
 
     return (
         <div className={`${styles.overlay} ${showClass} ${type === "success" ? styles.overlaySuccess : styles.overlayError}`}>

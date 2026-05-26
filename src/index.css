@@ -13,3 +13,7 @@
   --sidbarBg: #F8D442;
   --paragraphText: #6C6C6C;
 }
+
+html, body, #root {
+    height: 100%;
+}

@@ -1,12 +1,17 @@
 import styles from './DashboardRoot.module.css'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import SideBar from '../../components/SideBar/SideBar'
 import NavBar from '../../components/NavBar/NavBar'
 import AlertPopup from '../../components/ui/AlartPopup/AlartPopup'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 const DashboardRoot = () => {
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!localStorage.getItem("token")) navigate("/");
+    }, []);
+
     const [alert, setAlert] = useState({ show: false, type: "success" as "success" | "error", message: "" });
 
     const showAlert = (type: "success" | "error", msg: string) => {

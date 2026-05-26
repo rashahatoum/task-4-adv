@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import DynamicForm from "../../components/DynamicForm/DynamicForm";
-import type { InputProps, ProductCreated } from "../../interfaces";
+import type { AlertContextType, InputProps, ProductCreated } from "../../interfaces";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import axios from "axios";
 import { GrPrevious } from "react-icons/gr";
@@ -10,7 +10,7 @@ import styles from "./AddItem.module.css"
 const AddItem = () => {
   const [data, setData] = useState<ProductCreated>()
   const navigate = useNavigate()
-  const { showAlert } = useOutletContext<{ showAlert: Function }>();
+  const { showAlert } = useOutletContext<AlertContextType>();
 
   useEffect(() => {
     if (data?.name) {
